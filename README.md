@@ -10,6 +10,12 @@ A tutorial on how to:
 Composer version: composer-1.18.8-airflow-1.10.15
 Airflow version: 1.10.15
 
+Prereqs:
+
+- VS Code
+- pyenv (https://github.com/pyenv/pyenv)
+- Python installed via pyenv (version determined during tutorial)
+
 ## Creating Composer environment
 
 Create a new GCP project so that it's easy to delete all resources created automatically when finished.
