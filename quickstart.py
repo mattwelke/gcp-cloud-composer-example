@@ -1,7 +1,7 @@
 import datetime
 
-import airflow
-from airflow.operators import bash_operator
+from airflow import models
+from airflow.operators import bash
 
 # If you are running Airflow in more than one time zone
 # see https://airflow.apache.org/docs/apache-airflow/stable/timezone.html
@@ -19,12 +19,13 @@ default_args = {
     'start_date': YESTERDAY,
 }
 
-with airflow.DAG(
-        'composer_sample_dag',
+with models.DAG(
+        'composer_quickstart',
         catchup=False,
         default_args=default_args,
         schedule_interval=datetime.timedelta(days=1)) as dag:
 
     # Print the dag_run id from the Airflow logs
-    print_dag_run_conf = bash_operator.BashOperator(
+    print_dag_run_conf = bash.BashOperator(
         task_id='print_dag_run_conf', bash_command='echo {{ dag_run.id }}')
+        
